@@ -40,7 +40,7 @@ For more information, check Kohana v2's caching interface: http://docs.kohanaphp
 ## Additional tips ##
 
 - You can configure this module as your 'default' cache driver, if you want. 
-- You can use multiple configuration sets, using different combinations of databases and collections (or even MongoDB's instances, althout that may be too much). That will allow having multiple cache storages, each one with a specific purpose. You can interact with each one of those storages individually.
+- You can use multiple configuration sets, using different combinations of databases and collections (or even MongoDB instances, though that may be too much). That will allow having multiple cache storages, each one with a specific purpose. You can interact with each one of those storages individually.
 
 ## Aftermath ##
 
