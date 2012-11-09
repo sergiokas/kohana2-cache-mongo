@@ -20,7 +20,8 @@ MongoDB-based cache driver for the Kohana v2.x PHP Framework, with tags support.
 
 ## Configuration ##
 
-Open the config/cache.php file and configure MongoDB's host and port (localhost:27017 is the default), and (optionally) database and collection. 
+- Open the config/cache.php file and configure MongoDB's host and port (localhost:27017 is the default)
+- Optionally, configure a specific database and collection. 
 
 ## Usage ##
 
