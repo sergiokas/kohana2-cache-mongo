@@ -36,6 +36,9 @@ class Cache_Mongo_Driver implements Cache_Driver {
         	$this->connection = new Mongo("{$config['host']}:{$config['port']}");
         	$this->database = $this->connection->{$config['database']};
         	$this->collection = $this->database->{$config['collection']};
+        	// Index a few fields for faster search.
+        	$this->collection->ensureIndex(array('tags'=>1));
+        	$this->collection->ensureIndex(array('lifetime'=>1));
 	}
     
     /**
@@ -58,7 +61,7 @@ class Cache_Mongo_Driver implements Cache_Driver {
 		$result = array();
         $cursor = $this->collection->find(array("tags" => $tag));
         foreach($cursor as $doc) {
-	        	if(!empty($doc) && !$this->expired($doc)) {
+	        	if(!empty($doc) && !empty($doc['data']) && !$this->expired($doc)) {
 	        		$result[] = $doc['data'];
 	        	}        		
         }
@@ -87,7 +90,7 @@ class Cache_Mongo_Driver implements Cache_Driver {
 	 * Deletes all expired cache items.
 	 */
 	public function delete_expired() {
-		$query = array('lifetime'=>array('$lte' => time(), '$gt' => 0));
+		$query = array('lifetime'=>array('$gt' => 0, '$lte' => time()));
         $this->collection->remove($query);
         return true;
 	}
