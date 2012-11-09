@@ -1,17 +1,19 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 /**
  * MongoDB-based cache configuration
+ * It's possible to have as many configurations you want for connection, databases and collections, 
+ * to use for different caching purposes.
  */
 $config['mongo'] = array(
-		'driver'   => 'mongo',
+	'driver'   => 'mongo',
+	'params'   => array(
 		// MongoDB connection information
-		'params'   => array(
-			'host' => '127.0.0.1',
-			'port' => '27017',
-			'database' => 'kohana-mongo-cache'
-			'collection' => null // Leave null for default collection
-		),
-		// Cache lifetime, in seconds and requests
-		'lifetime' => 1800,
-		'requests' => 1000
+		'host' => '127.0.0.1',
+		'port' => '27017',
+		'database' => null,	// Leave blank for default database ("kohana-cache")
+		'collection' => null // Leave blank for default collection ("default");
+	),
+	// Cache lifetime, in seconds and requests
+	'lifetime' => 1800,
+	'requests' => 1000
 );
