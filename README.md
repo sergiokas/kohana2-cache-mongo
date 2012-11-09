@@ -6,8 +6,8 @@ MongoDB-based cache driver for the Kohana v2.x PHP Framework, with tags support.
 ## Requirements ##
 
 - PHP 5.2+
-- php-mongo (offical MongoDB extension for PHP, http://www.php.net/manual/en/book.mongo.php)
-- a running MongoDB instance.
+- Offical MongoDB extension for PHP, http://www.php.net/manual/en/book.mongo.php
+- A running MongoDB instance, and a configured Kohana installation.
 
 ## Installation ##
 	
